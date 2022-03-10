@@ -2,21 +2,21 @@ SRCS			= 	Phonebook.cpp\
 					Contact.cpp\
 					Main.cpp
 
-OBJS			= $(SRCS:.c=.o)
+OBJS			= $(SRCS:.cpp=.o)
 
-CC				= c++
+CXX				= c++
 RM				= rm -f
-CFLAGS			= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS			= -Wall -Wextra -Werror -g3 -std=c++98
 
 NAME			= phonebook
 
 all:			$(NAME)
 
-%.o: %.c
-				@$(CC) -I. -o $@ -c $? $(FLAGS)
+%.o: %.cpp
+				$(CXX) $(CXXFLAGS) -I. -o $@ -c $? 
 
 $(NAME):		$(OBJS)
-				${CC} ${CFLAGS} -o ${NAME} ${OBJS}
+				${CXX} ${CXXFLAGS} -o ${NAME} ${OBJS}
 
 clean:
 				@echo "\n${GREEN} |   Cleaning Files"

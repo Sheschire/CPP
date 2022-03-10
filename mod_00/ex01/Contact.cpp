@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 17:07:58 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/09 17:07:59 by tlemesle         ###   ########.fr       */
+/*   Updated: 2022/03/10 16:17:48 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,18 @@
 Contact::Contact() {}
 
 Contact::~Contact() {}
+
+void	Contact::color(std::string c, std::string s) const
+{
+	if (!c.compare("red"))
+		std::cout << "\033[1;31m" + s + "\033[0m";
+	else if (!c.compare("yellow"))
+		std::cout << "\033[1;33m" + s + "\033[0m";
+	else if (!c.compare("blue"))
+		std::cout << "\033[1;34m" + s + "\033[0m";
+	else if (!c.compare("green"))
+		std::cout << "\033[1;32m" + s + "\033[0m";
+}
 
 int    Contact::setFirstName(std::string firstname)
 {
@@ -46,8 +58,8 @@ int    Contact::setPhoneNumber(std::string phone)
 	while (phone[++i])
 		if (phone[i] < '0' || phone[i] > '9')
 			return (NOT_A_DIGIT);
-	if (phone.length() != 10)
-		return (INVALID_NUMBER);
+	// if (phone.length() != 10)
+	// 	return (INVALID_NUMBER);
 	this->_phone_number = phone;
 	return (1);
 }

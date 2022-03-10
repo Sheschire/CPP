@@ -29,6 +29,8 @@ class Contact
 	int	setDarkestSecret(std::string secret);
 
 	void	getContact() const;
+
+	void	color(std::string c, std::string s) const;
 };
 
 #endif
