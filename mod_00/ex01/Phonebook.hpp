@@ -22,10 +22,13 @@ class   Phonebook
 	void    addContact();
 	void	addInfos(std::string prompt, int (Contact::*f)(std::string), int index);
 	void	searchContact();
-	void	printPrompt(std::string input);
+	void	printPrompt(void);
+	void	printContactList(const char *prompt_array[4]);
+	void	printContact(int index);
 
 	int	getIndex() const;
 
+	int	checkInput(std::string input) const;
 	void	color(std::string c, std::string s) const;
 };
 

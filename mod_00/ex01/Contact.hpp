@@ -28,7 +28,7 @@ class Contact
 	int	setPhoneNumber(std::string phone);
 	int	setDarkestSecret(std::string secret);
 
-	void	getContact() const;
+	std::string	getContact(std::string s) const;
 
 	void	color(std::string c, std::string s) const;
 };

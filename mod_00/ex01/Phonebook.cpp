@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 17:07:32 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/10 16:28:47 by tlemesle         ###   ########.fr       */
+/*   Updated: 2022/03/14 14:56:23 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void    Phonebook::addContact(void)
 {
 	if (this->index == 8)
 		this->index = 0;
-	std::cout << " " << std::endl;
+	std::cout << std::endl;
 	color("green", "Enter new contact informations :\n");
 	this->addInfos("First Name : ", &Contact::setFirstName, this->index);
 	this->addInfos("Last Name : ", &Contact::setLastName, this->index);
@@ -40,7 +40,7 @@ void    Phonebook::addContact(void)
 	this->addInfos("Phone Number : ", &Contact::setPhoneNumber, this->index);
 	this->addInfos("Darkest Secret : ", &Contact::setDarkestSecret, this->index);
 	color("yellow", "A new contact has been added to Phonebook !\n");
-	std::cout << " " << std::endl;
+	std::cout << std::endl;
 	this->index++;
 	
 }
@@ -53,7 +53,7 @@ void    Phonebook::addInfos(std::string prompt, int (Contact::*f)(std::string), 
 	while (valid_input != true)
 	{
 		std::cout << prompt;
-		std::getline(std::cin, input);
+		std::cin >> input;
 		if ((this->_contact_arr[index].*f)(input) == 1)
 			valid_input = true;
 		else if ((this->_contact_arr[index].*f)(input) == EMPTY_STRING)
@@ -70,28 +70,99 @@ int	Phonebook::getIndex(void) const
 	return (this->index);
 }
 
+int	Phonebook::checkInput(std::string input) const
+{
+	int			i;
+	std::string	ret;
+	
+	i = -1;
+	while (input[++i])
+	{
+		if (isdigit(input[i]) == 0)
+		{
+			color("red", "Error: index should be a number\n");
+			return (0);
+		}
+	}
+	i = std::atoi(input.c_str());
+	if (i < 0 || i > 8)
+	{
+		color("red", "Error: index should be between 0 and 8\n");
+		return (0);
+	}
+	ret = this->_contact_arr[i].getContact("first name");
+	if (ret == "")
+	{
+		color("red", "Error: this contact index doesn't exists yet\n");
+		return (0);
+	}
+	return (1);
+}
+
 void	Phonebook::searchContact(void)
 {
 	std::string	input;
-	
-	input = "";
-	this->printPrompt(input);
+
+	printPrompt();
 	color("green", "Enter contact index : ");
 	std::cin >> input;
-	this->printPrompt(input);
+	if (checkInput(input))
+		printContact(std::atoi(input.c_str()));
+	else
+		searchContact();
 }
 
-void	Phonebook::printPrompt(std::string input)
+void	Phonebook::printContactList(const char *prompt_array[4])
 {
-	std::cout << std::setw(10) << "index|";
-	std::cout << std::setw(10) << "first name|";
-	std::cout << std::setw(10) << "last name|";
-	std::cout << std::setw(10) << "nickname" << std::endl;
-	if (input.empty() == true)
-		std::cout << std::setw(10) << "-|" << std::endl;
-	else
+	int			i;
+	int			j;
+	std::string	ret;
+	
+	for (i = 0; this->_contact_arr[i].getContact("first name").empty() == false; i++)
 	{
-		std::cout << std::setw(10) << input + "|";
-		std::cout << std::setw(10) << +"|";
+		std::cout << std::setw(10) << i << "|";
+		for (j = 1; j < 4; j++)
+		{
+			ret = this->_contact_arr[i].getContact(prompt_array[j]);
+			if (ret.length() > 10)
+			{
+				ret.erase(10);
+				ret.replace(9, 1, ".");
+			}
+			std::cout << std::setw(10) << ret << "|";
+		}
+		std::cout << std::endl;
 	}
+}
+
+void	Phonebook::printPrompt(void)
+{
+	int			i;
+	const char	*prompt_array[4] = {"index", "first name", "last name", "nickname"};
+
+	for (i = 0; i < 4; i++)
+		std::cout << std::setw(10) << prompt_array[i] << "|";
+	std::cout << std::endl;
+	if (this->_contact_arr[0].getContact("first name").empty() == true)
+		for (i = 0; i < 4; i++)
+			std::cout << std::setw(10) << "-" << "|";
+	else
+		printContactList(prompt_array);
+	std::cout << std::endl;
+}
+
+void	Phonebook::printContact(int index)
+{
+	const char	*contact_infos[5] = {"first name", "last name", "nickname", "phone", "secret"};
+	int	i;
+
+	color("yellow", "\nYou chose to print : ");
+	color("yellow", this->_contact_arr[index].getContact("first name"));
+	std::cout << std::endl;
+	for (i = 0; i < 5; i++)
+	{
+		std::cout << contact_infos[i] << " : " << \
+		this->_contact_arr[index].getContact(contact_infos[i]) << std::endl;
+	}
+	std::cout << std::endl;
 }
