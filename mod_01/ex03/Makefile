@@ -1,6 +1,7 @@
-SRCS			= 	Phonebook.cpp\
-					Contact.cpp\
-					main.cpp
+SRCS			= 	main.cpp\
+					HumanA.cpp\
+					HumanB.cpp\
+					Weapon.cpp
 
 OBJS			= $(SRCS:.cpp=.o)
 
@@ -8,7 +9,7 @@ CXX				= c++
 RM				= rm -f
 CXXFLAGS			= -Wall -Wextra -Werror -g3 -std=c++98
 
-NAME			= phonebook
+NAME			= uselessViolence
 
 all:			$(NAME)
 

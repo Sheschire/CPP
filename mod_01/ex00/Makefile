@@ -1,6 +1,7 @@
-SRCS			= 	Phonebook.cpp\
-					Contact.cpp\
-					main.cpp
+SRCS			= 	main.cpp\
+					newZombie.cpp\
+					randomChump.cpp\
+					Zombie.cpp
 
 OBJS			= $(SRCS:.cpp=.o)
 
@@ -8,7 +9,7 @@ CXX				= c++
 RM				= rm -f
 CXXFLAGS			= -Wall -Wextra -Werror -g3 -std=c++98
 
-NAME			= phonebook
+NAME			= brainz
 
 all:			$(NAME)
 
