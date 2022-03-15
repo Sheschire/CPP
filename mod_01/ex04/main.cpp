@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 14:02:32 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/15 15:13:00 by tlemesle         ###   ########.fr       */
+/*   Updated: 2022/03/15 15:21:44 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,20 @@ int	fill_ofs(std::ifstream *ifs, std::ofstream *ofs, const char *_s1, const char
 
 	s1 = _s1;
 	s2 = _s2;
+
+	// COPY IFS CONTENT INTO STRING
 	for (i = 0; ifs->eof() != true; i++)
 		ifs_content += ifs->get();
 	ifs_content.erase(ifs_content.end() - 1);
+
+	// REPLACE S1 OCC BY S2
 	while ((finder = ifs_content.find(s1)) != -1)
 	{
 		ifs_content.erase(finder, s1.length());
 		ifs_content.insert(finder, s2);
 	}
+
+	// COPY REPLACED STRING INTO OFS && RETURN
 	*ofs << ifs_content;
 	return (1);
 }
@@ -61,12 +67,14 @@ int	main(int ac, char **av)
 	std::string		replace;
 	const char		*ofs_file;
 	
+	// CHECK PARAMETERS
 	if (ac != 4)
 		return (_err("Number of argument invalid\n"));
 	ifs.open(av[1], std::ifstream::in);
 	if (!ifs)
 		return (_err("Failed to open input file stream\n"));
 
+	// PREPARE OFS
 	replace = av[1];
 	replace.append(".replace");
 	ofs_file = replace.c_str();
@@ -74,6 +82,7 @@ int	main(int ac, char **av)
 	if (!ofs)
 		return (_err("Failed to open output file stream\n"));
 	
+	// REPLACE ALGO && CLOSE FILES
 	fill_ofs(&ifs, &ofs, av[2], av[3]);
 	ifs.close();
 	ofs.close();
