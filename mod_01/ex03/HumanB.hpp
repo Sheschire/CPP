@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 11:48:31 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/15 12:55:12 by tlemesle         ###   ########.fr       */
+/*   Updated: 2022/03/15 13:12:55 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ class HumanB
 
 	void	attack(void) const;
 	int		setWeapon(Weapon &weapon);
-	Weapon	&getWeapon(void) const;
 };
 
 #endif

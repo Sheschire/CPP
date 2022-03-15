@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 11:49:35 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/15 13:00:44 by tlemesle         ###   ########.fr       */
+/*   Updated: 2022/03/15 13:13:01 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,4 @@ int		HumanB::setWeapon(Weapon &weapon)
 	}
 	this->_weapon = &weapon;
 	return (0);
-}
-
-Weapon	&HumanB::getWeapon(void) const
-{
-	return (*(this->_weapon));
 }

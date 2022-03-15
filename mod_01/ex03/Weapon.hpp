@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 11:48:54 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/15 12:38:40 by tlemesle         ###   ########.fr       */
+/*   Updated: 2022/03/15 13:15:49 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Weapon
 		~Weapon();
 
 	std::string	&getType(void);
-	void		setType(std::string type);
+	int			setType(std::string type);
 };
 
 #endif
