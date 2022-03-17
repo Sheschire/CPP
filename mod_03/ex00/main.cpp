@@ -1,37 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/16 12:07:12 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/17 17:58:54 by tlemesle         ###   ########.fr       */
+/*   Created: 2022/03/17 17:46:40 by tlemesle          #+#    #+#             */
+/*   Updated: 2022/03/17 18:13:30 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#include "ClapTrap.hpp"
 
-#include <string>
-#include <iostream>
-#include <cctype>
-#include <cstdlib>
-#include <iomanip>
-
-class Fixed
+int main()
 {
-	private:
-		int	_rawBits;
-		static const int bits = 8;
-	public:
-		Fixed();
-		Fixed(Fixed const & src);
-		~Fixed();
-		Fixed &	operator=(Fixed const & rhs);
-	
-	int		getRawBits(void) const;
-	void	setRawBits(int const raw);
-};
-
-#endif
+	std::cout << "Program starts" << std::endl;
+}
