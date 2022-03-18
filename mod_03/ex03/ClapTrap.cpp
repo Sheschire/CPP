@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 18:02:36 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/18 11:59:44 by tlemesle         ###   ########.fr       */
+/*   Updated: 2022/03/18 16:18:07 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 // COPLIEN
 ClapTrap::ClapTrap() {}
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitPts(10), _energyPts(10), _attackDmg(0) {
-	std::cout << this->_name << " parametric constructor called." << std::endl;
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitPts(100), _energyPts(50), _attackDmg(20) {
+	std::cout << "ClapTrap parametric constructor called." << std::endl;
 }
 
 ClapTrap::ClapTrap(ClapTrap const & src){
-	std::cout << "Copy constructor called." << std::endl;
+	std::cout << "ClapTrap Copy constructor called." << std::endl;
 	*this = src;
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << this->_name << " destructor called." << std::endl;
+	std::cout << "ClapTrap destructor called." << std::endl;
 }
 
 ClapTrap & ClapTrap::operator=(ClapTrap const & rhs){
@@ -39,6 +39,10 @@ ClapTrap & ClapTrap::operator=(ClapTrap const & rhs){
 	return(*this);
 }
 
+// CONSTRUCTOR FOR DERIVED CLASS FRAGTRAP
+ClapTrap::ClapTrap(std::string name, int hitPts, int energyPts, int attackDmg) : _name(name), _hitPts(hitPts), _energyPts(energyPts), _attackDmg(attackDmg){
+	std::cout << "Dedicated constructor for FragTrap called." << std::endl;
+}
 
 
 // PUBLIC FUNCTIONS
@@ -58,6 +62,7 @@ bool	ClapTrap::checkLifeEnergy(void) const{
 void    ClapTrap::attack(const std::string & target){
 	if (this->checkLifeEnergy() == false)
 		return ;
+	std::cout << "ClapTrap Attack ! ";
 	if (target == this->_name)
 		std::cout << this->_name << " think about attacking himself but realize it's stupid..." << std::endl;
 	else

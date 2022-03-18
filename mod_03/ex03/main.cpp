@@ -6,41 +6,24 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 17:46:40 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/18 11:58:00 by tlemesle         ###   ########.fr       */
+/*   Updated: 2022/03/18 16:21:26 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-	ClapTrap		goku("Goku");
-	ClapTrap		vegeta("Vegeta");
-	ClapTrap		majinVegeta(vegeta);
-	unsigned int	repairValue = 5;
-	unsigned int	chargeValue = 4;
-
-	std::cout << std::endl;
+	color("green", "\n\n|    CREATE A FRAGTRAP    |\n\n");
+	FragTrap	jason("Jason", 100, 100, 30);
+	color("green", "\n\n|    CREATE A CLAPTRAP    |\n\n");
+	ClapTrap	morray("Morray");
 	
-	goku.printStats();
-	vegeta.printStats();
-	goku.chargeAttack(chargeValue);
-	vegeta.chargeAttack(chargeValue);
-	goku.attack(vegeta.getName());
-	vegeta.takeDamage(goku.getAttackDmg());
-	vegeta.attack(vegeta.getName());
-	vegeta.beRepaired(repairValue);
-	goku.attack(vegeta.getName());
-	vegeta.takeDamage(goku.getAttackDmg());
-	goku.printStats();
-	vegeta.printStats();
-	while (goku.getHitPoints() > 0 && vegeta.getEnergyPoints() > 0)
-	{
-		vegeta.attack(goku.getName());
-		goku.takeDamage(vegeta.getAttackDmg());
-	}
-	goku.printStats();
-	vegeta.printStats();
-	
-	std::cout << std::endl;
+	jason.printStats();
+	morray.printStats();
+	color("green", "\n\n|    FRAGTRAP HIGH FIVE    |\n\n");
+	jason.highFivesGuys();
+	return (0);
 }
