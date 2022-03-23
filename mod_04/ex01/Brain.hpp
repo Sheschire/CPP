@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 16:27:58 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/23 10:41:57 by tlemesle         ###   ########.fr       */
+/*   Created: 2022/03/23 12:23:45 by tlemesle          #+#    #+#             */
+/*   Updated: 2022/03/23 13:37:26 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#ifndef BRAIN_HPP
+#define BRAIN_HPP
 
-DiamondTrap::DiamondTrap(std::string name)
+#include "main.hpp"
+
+class Brain
 {
-	ClapTrap::_name = name + "_clap_name";
-}
+	private:
+		std::string	ideas[100];
+	public:
+		Brain();
+		~Brain();
+		Brain(Brain const & src);
+		Brain & operator=(Brain const & rhs);
+	
+	void	setIdeas(std::string s, int i);
+};
+
+#endif

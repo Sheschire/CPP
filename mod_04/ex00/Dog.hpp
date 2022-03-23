@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 16:27:58 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/23 10:41:57 by tlemesle         ###   ########.fr       */
+/*   Created: 2022/03/23 11:01:40 by tlemesle          #+#    #+#             */
+/*   Updated: 2022/03/23 12:13:20 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#ifndef DOG_HPP
+#define DOG_HPP
 
-DiamondTrap::DiamondTrap(std::string name)
+#include <iostream>
+#include "Animal.hpp"
+
+class Dog : public Animal
 {
-	ClapTrap::_name = name + "_clap_name";
-}
+	public:
+		Dog();
+		~Dog();
+	
+	void	makeSound() const;
+	void	eat() const;
+};
+
+#endif

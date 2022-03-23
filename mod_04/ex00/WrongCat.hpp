@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 16:27:58 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/23 10:41:57 by tlemesle         ###   ########.fr       */
+/*   Created: 2022/03/23 11:58:26 by tlemesle          #+#    #+#             */
+/*   Updated: 2022/03/23 12:13:37 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
 
-DiamondTrap::DiamondTrap(std::string name)
+#include <iostream>
+#include "WrongAnimal.hpp"
+
+class WrongCat : public WrongAnimal
 {
-	ClapTrap::_name = name + "_clap_name";
-}
+	public:
+		WrongCat();
+		~WrongCat();
+	
+	void	makeSound() const;
+	void	eat() const;
+};
+
+
+#endif

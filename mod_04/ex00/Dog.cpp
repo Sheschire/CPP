@@ -1,18 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 16:27:58 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/23 10:41:57 by tlemesle         ###   ########.fr       */
+/*   Created: 2022/03/23 11:00:45 by tlemesle          #+#    #+#             */
+/*   Updated: 2022/03/23 12:15:38 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#include "Dog.hpp"
 
-DiamondTrap::DiamondTrap(std::string name)
-{
-	ClapTrap::_name = name + "_clap_name";
+Dog::Dog(void) {
+	this->_type = "Dog";
+	std::cout << this->_type << " constructor called." << std::endl;
+}
+
+Dog::~Dog(void){
+	std::cout << this->_type << " destructor called." << std::endl;
+}
+
+void	Dog::makeSound(void) const {
+	std::cout << "* Wouaf *" << std::endl;
+}
+
+void	Dog::eat(void) const{
+	std::cout << this->_type << " eats meat" << std::endl;
 }

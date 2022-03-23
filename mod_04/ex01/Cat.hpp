@@ -1,18 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 16:27:58 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/23 10:41:57 by tlemesle         ###   ########.fr       */
+/*   Created: 2022/03/23 11:01:37 by tlemesle          #+#    #+#             */
+/*   Updated: 2022/03/23 14:00:56 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#ifndef CAT_HPP
+#define CAT_HPP
 
-DiamondTrap::DiamondTrap(std::string name)
+#include "main.hpp"
+#include "Brain.hpp"
+
+class Cat : public Animal
 {
-	ClapTrap::_name = name + "_clap_name";
-}
+	private:
+		Brain* brain;
+	public:
+		Cat();
+		~Cat();
+		Cat(Cat const & src);
+		Cat & operator=(Cat const & rhs);
+		Animal & operator=(Animal const & rhs);
+	
+	void	makeSound() const;
+	void	eat() const;
+	void	setBrain(std::string s, int i);
+	virtual Brain	*getBrain() const;
+};
+
+#endif

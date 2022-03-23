@@ -1,18 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/18 16:27:58 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/23 10:41:57 by tlemesle         ###   ########.fr       */
+/*   Created: 2022/03/23 11:01:03 by tlemesle          #+#    #+#             */
+/*   Updated: 2022/03/23 14:01:36 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "DiamondTrap.hpp"
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-DiamondTrap::DiamondTrap(std::string name)
+#include "main.hpp"
+#include "Brain.hpp"
+
+class Animal
 {
-	ClapTrap::_name = name + "_clap_name";
-}
+	protected:
+		std::string	_type;
+	public:
+		Animal();
+		Animal(Animal const & src);
+		Animal & operator=(Animal const & rhs);
+		virtual ~Animal();
+	
+	virtual	Brain	*getBrain(void) const = 0;
+	virtual void	makeSound() const;
+	virtual void	eat() const;
+	std::string		getType() const;
+};
+
+#endif
