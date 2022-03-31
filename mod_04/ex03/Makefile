@@ -15,7 +15,7 @@ NAME			= Materia
 all:			$(NAME)
 
 %.o: %.cpp
-				$(CXX) $(CXXFLAGS) -I. -o $@ -c $? 
+				$(CXX) $(CXXFLAGS) -I./includes/ -o $@ -c $? 
 
 $(NAME):		$(OBJS)
 				${CXX} ${CXXFLAGS} -o ${NAME} ${OBJS}
