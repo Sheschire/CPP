@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/31 14:52:51 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/31 16:08:24 by tlemesle         ###   ########.fr       */
+/*   Updated: 2022/03/31 16:21:07 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class Character : public ICharacter
 		Character(Character const & src);
 		Character & operator=(Character const & rhs);
 		Character(std::string const & type);
+		Character(std::string name);
 	
 	std::string const & getName() const;
 	void equip(AMateria* m);

@@ -35,6 +35,9 @@ Character & Character::operator=(Character const & rhs){
 	return (*this);
 }
 
+Character::Character(std::string name) : _name(name){
+	std::cout << "Parametric constructor called." << std::endl;
+}
 ///////////////////////////////////////////////////////////////////
 
 std::string const & Character::getName() const{
