@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 11:01:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/23 15:44:13 by tlemesle         ###   ########.fr       */
+/*   Created: 2022/03/23 15:52:17 by tlemesle          #+#    #+#             */
+/*   Updated: 2022/03/31 16:04:39 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef ICHARACTER_HPP
+#define ICHARACTER_HPP
 
-#include "main.hpp"
-#include "Brain.hpp"
+#include "includes.hpp"
 
-class Animal
+class AMateria;
+
+class ICharacter
 {
-	protected:
-		std::string	_type;
-		Brain		*brain;
 	public:
-		Animal();
-		Animal(Animal const & src);
-		Animal & operator=(Animal const & rhs);
-		virtual ~Animal();
-	
-	virtual	Brain	*getBrain(void) const;
-	virtual void	makeSound() const;
-	virtual void	eat() const;
-	std::string		getType() const;
+		virtual ~ICharacter() {}
+		virtual std::string const & getName() const = 0;
+		virtual void equip(AMateria* m) = 0;
+		virtual void unequip(int idx) = 0;
+		virtual void use(int idx, ICharacter& target) = 0;
+
 };
 
 #endif

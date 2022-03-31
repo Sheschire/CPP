@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 11:00:29 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/23 15:44:02 by tlemesle         ###   ########.fr       */
+/*   Created: 2022/03/23 11:58:20 by tlemesle          #+#    #+#             */
+/*   Updated: 2022/03/23 13:42:28 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
 
-Animal::Animal(void) {
-	this->_type = "Animal";
+WrongCat::WrongCat(void) {
+	this->_type = "WrongCat";
 	std::cout << this->_type << " constructor called." << std::endl;
 }
 
-Animal::~Animal(void){
+WrongCat::~WrongCat(void){
 	std::cout << this->_type << " destructor called." << std::endl;
 }
 
-Animal::Animal(Animal const & src){
-	std::cout << "Animal copy constructor called." << std::endl;
+WrongCat::WrongCat(WrongCat const & src) : WrongAnimal(src){
+	std::cout << "WrongCat copy constructor called." << std::endl;
 	*this = src;
 }
 
-Animal & Animal::operator=(Animal const & rhs){
-	std::cout << "Animal assignement operator called." << std::endl;
+WrongCat & WrongCat::operator=(WrongCat const & rhs){
+	std::cout << "WrongCat assignement operator called." << std::endl;
 	if (this != &rhs)
 		this->_type = rhs._type;
 	return(*this);
@@ -36,18 +36,12 @@ Animal & Animal::operator=(Animal const & rhs){
 
 
 
-void	Animal::makeSound(void) const {
-	std::cout << "* Random animal sound *" << std::endl;
+
+
+void	WrongCat::makeSound(void) const {
+	std::cout << "* Miaou *" << std::endl;
 }
 
-std::string	Animal::getType(void) const{
-	return (this->_type);
-}
-
-void	Animal::eat(void) const{
-	std::cout << this->_type << " eats fruits" << std::endl;
-}
-
-Brain	*Animal::getBrain(void) const{
-	return (this->brain);
+void	WrongCat::eat(void) const {
+	std::cout << this->_type << " eats salt" << std::endl;
 }

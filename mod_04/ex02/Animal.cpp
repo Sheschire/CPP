@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 11:00:29 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/23 15:44:02 by tlemesle         ###   ########.fr       */
+/*   Updated: 2022/03/23 15:45:55 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,4 @@ std::string	Animal::getType(void) const{
 
 void	Animal::eat(void) const{
 	std::cout << this->_type << " eats fruits" << std::endl;
-}
-
-Brain	*Animal::getBrain(void) const{
-	return (this->brain);
 }

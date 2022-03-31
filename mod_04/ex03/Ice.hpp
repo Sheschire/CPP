@@ -6,20 +6,19 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 16:16:38 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/23 16:39:21 by tlemesle         ###   ########.fr       */
+/*   Updated: 2022/03/31 16:11:21 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ICE_HPP
 #define ICE_HPP
 
-// #include "AMateria.hpp"
-// #include "ICharacter.hpp"
+#include "AMateria.hpp"
 
 class Ice : public AMateria
 {
 	private:
-		const std::string	_type = "ice";
+		std::string	_type;
 	public:
 		Ice();
 		~Ice();

@@ -6,7 +6,7 @@
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 11:00:14 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/23 15:46:55 by tlemesle         ###   ########.fr       */
+/*   Updated: 2022/03/23 15:47:42 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	color(std::string c, std::string s)
 int main()
 {
 	color("yellow", "----- [ Init every objects ] -----\n\n");
-	const Animal* meta = new Animal();
+	// const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 	const WrongAnimal* meta2 = new WrongAnimal();
@@ -43,8 +43,8 @@ int main()
 	i->makeSound();
 	std::cout << "Dog say : ";
 	j->makeSound();
-	std::cout << "Animal say : ";
-	meta->makeSound();
+	//std::cout << "Animal say : ";
+	//meta->makeSound();
 	std::cout << "WrongCat say : ";
 	k->makeSound();
 	std::cout << "WrongAnimal say : ";
@@ -54,13 +54,13 @@ int main()
 	color("yellow", "----- [ Test meals ] -----\n\n");
 	i->eat();
 	j->eat();
-	meta->eat();
+	//meta->eat();
 	k->eat();
 	meta2->eat();
 
 	std::cout << std::endl;
 	color("yellow", "----- [ Delete every objects ] -----\n\n");
-	delete(meta);
+//	delete(meta);
 	delete(j);
 	delete(i);
 	delete(meta2);

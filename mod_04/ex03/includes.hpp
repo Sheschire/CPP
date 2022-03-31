@@ -1,36 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   includes.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 11:01:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/23 15:44:13 by tlemesle         ###   ########.fr       */
+/*   Created: 2022/03/31 16:00:22 by tlemesle          #+#    #+#             */
+/*   Updated: 2022/03/31 16:01:06 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef INCLUDES_HPP
+#define INCLUDES_HPP
 
-#include "main.hpp"
-#include "Brain.hpp"
-
-class Animal
-{
-	protected:
-		std::string	_type;
-		Brain		*brain;
-	public:
-		Animal();
-		Animal(Animal const & src);
-		Animal & operator=(Animal const & rhs);
-		virtual ~Animal();
-	
-	virtual	Brain	*getBrain(void) const;
-	virtual void	makeSound() const;
-	virtual void	eat() const;
-	std::string		getType() const;
-};
+#include <iostream>
+#include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 #endif

@@ -1,36 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 11:01:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/23 15:44:13 by tlemesle         ###   ########.fr       */
+/*   Created: 2022/03/23 15:49:39 by tlemesle          #+#    #+#             */
+/*   Updated: 2022/03/31 16:01:31 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#include "includes.hpp"
 
-#include "main.hpp"
-#include "Brain.hpp"
-
-class Animal
+int main()
 {
-	protected:
-		std::string	_type;
-		Brain		*brain;
-	public:
-		Animal();
-		Animal(Animal const & src);
-		Animal & operator=(Animal const & rhs);
-		virtual ~Animal();
-	
-	virtual	Brain	*getBrain(void) const;
-	virtual void	makeSound() const;
-	virtual void	eat() const;
-	std::string		getType() const;
-};
-
-#endif
+	// Ice	*ice = new Ice();
+	// Cure	*cure = new Cure();
+	return (0);
+}

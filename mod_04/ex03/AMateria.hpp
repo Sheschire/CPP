@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlemesle <tlemesle@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/23 11:01:03 by tlemesle          #+#    #+#             */
-/*   Updated: 2022/03/23 15:44:13 by tlemesle         ###   ########.fr       */
+/*   Created: 2022/03/23 15:50:26 by tlemesle          #+#    #+#             */
+/*   Updated: 2022/03/31 16:13:01 by tlemesle         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#ifndef AMATERIA_HPP
+#define AMATERIA_HPP
 
-#include "main.hpp"
-#include "Brain.hpp"
+#include "includes.hpp"
 
-class Animal
+class ICharacter;
+
+class AMateria
 {
 	protected:
-		std::string	_type;
-		Brain		*brain;
+		const std::string	_type;
+		AMateria();
 	public:
-		Animal();
-		Animal(Animal const & src);
-		Animal & operator=(Animal const & rhs);
-		virtual ~Animal();
+		virtual ~AMateria();
+		AMateria(AMateria const & src);
+		AMateria & operator=(AMateria const & rhs);
+		AMateria(std::string const & type);
 	
-	virtual	Brain	*getBrain(void) const;
-	virtual void	makeSound() const;
-	virtual void	eat() const;
-	std::string		getType() const;
+	std::string const & getType() const;
+	virtual AMateria* clone() const = 0;
+	virtual void use(ICharacter & target);
 };
 
 #endif
